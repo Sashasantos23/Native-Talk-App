@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 75% 7%;
+    --foreground: 40 33% 95%;
+
+    --card: 233 58% 23%;
+    --card-foreground: 40 33% 95%;
+
+    --popover: 233 58% 23%;
+    --popover-foreground: 40 33% 95%;
+
+    --primary: 43 49% 54%;
+    --primary-foreground: 230 75% 18%;
+
+    --primary-light: 43 60% 64%;
+
+    --secondary: 233 58% 23%;
+    --secondary-foreground: 40 33% 95%;
+
+    --muted: 230 50% 20%;
+    --muted-foreground: 37 10% 55%;
+
+    --accent: 233 58% 23%;
+    --accent-foreground: 40 33% 95%;
+
+    --destructive: 358 68% 46%;
+    --destructive-foreground: 40 33% 95%;
+    --destructive-soft: 358 68% 46% / 0.12;
+
+    --border: 230 55% 30%;
+    --input: 230 55% 30%;
+    --ring: 43 49% 54%;
+
+    --radius: 0.875rem;
+
+    /* NativeTalk brand tokens */
+    --navy: 230 75% 18%;
+    --navy-light: 233 58% 23%;
+    --navy-mid: 230 65% 17%;
+    --navy-dark: 230 85% 10%;
+    --navy-hover: 233 48% 23%;
+
+    --gold: 43 49% 54%;
+    --gold-light: 43 60% 64%;
+    --gold-soft: 43 49% 54% / 0.12;
+    --gold-border: 43 49% 54% / 0.3;
+
+    --cream: 40 33% 95%;
+    --cream-mid: 37 10% 80%;
+    --cream-soft: 37 10% 55%;
+
+    --sidebar-background: 230 75% 18%;
+    --sidebar-foreground: 40 33% 95%;
+    --sidebar-primary: 43 49% 54%;
+    --sidebar-primary-foreground: 230 75% 18%;
+    --sidebar-accent: 233 58% 23%;
+    --sidebar-accent-foreground: 40 33% 95%;
+    --sidebar-border: 230 55% 30%;
+    --sidebar-ring: 43 49% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 10px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-body {
+    font-family: 'Source Serif 4', serif;
+  }
+}
+
+@layer utilities {
+  @keyframes wv {
+    from { height: 4px; }
+    to { height: 16px; }
+  }
+  @keyframes sp {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes bc {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes fi {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--gold) / 0.5); }
+    50% { box-shadow: 0 0 0 6px hsl(var(--gold) / 0); }
+  }
+  @keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--destructive) / 0.5); }
+    50% { box-shadow: 0 0 0 6px hsl(var(--destructive) / 0); }
+  }
+
+  .animate-fade-in {
+    animation: fi 0.28s ease forwards;
+  }
+  .animate-dot {
+    animation: bc 1.2s infinite ease-in-out;
+  }
+  .animate-spin-custom {
+    animation: sp 0.7s linear infinite;
+  }
+  .animate-pulse-gold {
+    animation: pulse-gold 1s infinite;
+  }
+  .animate-pulse-red {
+    animation: pulse-red 1.2s infinite;
+  }
+}
